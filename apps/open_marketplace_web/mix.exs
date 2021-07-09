@@ -24,7 +24,7 @@ defmodule OpenMarketplaceWeb.MixProject do
   def application do
     [
       mod: {OpenMarketplaceWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -44,7 +44,9 @@ defmodule OpenMarketplaceWeb.MixProject do
       {:gettext, "~> 0.11"},
       {:open_marketplace, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:absinthe, "~> 1.6"},
+      {:absinthe_plug, "~> 1.5"},
     ]
   end
 

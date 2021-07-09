@@ -5,8 +5,10 @@ defmodule OpenMarketplaceWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", OpenMarketplaceWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: OpenMarketplace.Schema
   end
 
   # Enables LiveDashboard only for development

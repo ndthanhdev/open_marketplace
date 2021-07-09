@@ -36,7 +36,10 @@ defmodule OpenMarketplace.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix_pubsub, "~> 2.0"}
+      {:phoenix_pubsub, "~> 2.0"},
+      {:shop, in_umbrella: true},
+      {:absinthe, "~> 1.6"},
+      # {:wobserver, "~> 0.1", override: true}
     ]
   end
 
