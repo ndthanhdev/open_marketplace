@@ -1,3 +1,0 @@
-# OpenMarketplace
-
-**TODO: Add description**
