@@ -2,7 +2,6 @@ defmodule Shop.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
-
   use Application
 
   @impl true
@@ -10,6 +9,8 @@ defmodule Shop.Application do
     children = [
       # Starts a worker by calling: Shop.Worker.start_link(arg)
       # {Shop.Worker, arg}
+      Shop.App,
+      Shop.Handlers.Balance
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

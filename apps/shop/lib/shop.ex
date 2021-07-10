@@ -1,18 +1,13 @@
 defmodule Shop do
-  @moduledoc """
-  Documentation for `Shop`.
-  """
+  @derive Jason.Encoder
+  defstruct id: nil, domain: nil, balance: nil
 
-  @doc """
-  Hello world.
+  use Shop.Agregates.OpenShop
+  use Shop.Agregates.Withdraw
+end
 
-  ## Examples
+defmodule Shop.App do
+  use Commanded.Application, otp_app: :shop
 
-      iex> Shop.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  router(Shop.Router)
 end

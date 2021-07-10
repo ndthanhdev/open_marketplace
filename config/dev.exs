@@ -1,5 +1,21 @@
 use Mix.Config
 
+config :shop, Shop.App,
+  event_store: [
+    adapter: Commanded.EventStore.Adapters.Extreme,
+    serializer: Commanded.Serialization.JsonSerializer,
+    stream_prefix: "shop",
+    extreme: [
+      db_type: :node,
+      host: "localhost",
+      port: 1113,
+      username: "admin",
+      password: "changeit",
+      reconnect_delay: 2_000,
+      max_attempts: :infinity
+    ]
+  ]
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
