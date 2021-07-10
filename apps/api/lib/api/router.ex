@@ -9,6 +9,10 @@ defmodule Api.Router do
     pipe_through :api
   end
 
+  forward "/api", Absinthe.Plug, schema: Api.Schema
+
+  forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Api.Schema
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
