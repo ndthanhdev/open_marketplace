@@ -2,7 +2,7 @@ defmodule Shop.DataTypes do
   use Absinthe.Schema.Notation
 
   object :shop do
-    field(:id, :id)
+    field(:id, :string)
     field(:domain, :string)
   end
 

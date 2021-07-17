@@ -33,6 +33,9 @@ defmodule Shop.MixProject do
       {:commanded, "~> 1.2"},
       {:commanded_extreme_adapter, "~> 1.1"},
       {:absinthe, "~> 1.5"},
+      {:commanded_ecto_projections, "~> 1.2"},
+      {:ecto_sql, "~> 3.0"},
+      {:postgrex, ">= 0.0.0"}
     ]
   end
 end

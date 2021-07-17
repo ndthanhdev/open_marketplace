@@ -9,6 +9,14 @@
 # move said applications out of the umbrella.
 use Mix.Config
 
+config :shop, Shop.Repo,
+  database: "shop_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
+
+config :shop, ecto_repos: [Shop.Repo]
+
 config :api,
   ecto_repos: [Api.Repo],
   generators: [context_app: false]
