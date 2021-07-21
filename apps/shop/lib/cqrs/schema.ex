@@ -8,9 +8,9 @@ defmodule Shop.DataTypes do
 
   object :shop_queries do
     @desc "Get all the shops, optionally filtering"
-    field :shop, list_of(:string) do
+    field :shop, list_of(:shop) do
       resolve(fn _parent, _args, _resolution ->
-        {:ok, ["shop 1"]}
+        {:ok, Shop.Projection |> Shop.Repo.all}
       end)
     end
   end
