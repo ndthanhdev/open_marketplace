@@ -10,9 +10,8 @@ defmodule Shop.Application do
       # Starts a worker by calling: Shop.Worker.start_link(arg)
       # {Shop.Worker, arg}
       Shop.App,
-      # Shop.Handlers.Balance,
       Shop.Repo,
-      {Shop.Projector, application: Shop.App, name: "shop_projection"}
+      Shop.Projector
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

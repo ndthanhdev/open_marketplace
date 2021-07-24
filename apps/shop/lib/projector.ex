@@ -1,10 +1,12 @@
 defmodule Shop.Projector do
   use Commanded.Projections.Ecto,
-    application: Shop.Application,
+    application: Shop.App,
     repo: Shop.Repo,
-    name: "shop_projection"
+    name: "Shop.Projector"
 
-  project(%Shop.Events.ShopOpened{id: id, domain: domain}, _metadata, fn multi ->
+  alias Shop.{Events}
+
+  project(%Events.ShopOpened{id: id, domain: domain}, _metadata, fn multi ->
     Ecto.Multi.insert(multi, :shop_projection, %Shop.Projection{id: id, domain: domain})
   end)
 end

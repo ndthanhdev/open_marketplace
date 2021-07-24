@@ -8,19 +8,19 @@ defmodule Shop.Events.ShopOpened do
   defstruct id: nil, domain: nil
 end
 
-defmodule Shop.Agregates.OpenShop do
+defmodule Shop.Agregate.OpenShop do
   defmacro __using__(_opts) do
     quote do
-      def execute(%Shop{}, %Shop.Commands.OpenShop{
+      def execute(%Shop.Aggregate{}, %Shop.Commands.OpenShop{
             id: id,
             domain: domain
           }) do
         %Shop.Events.ShopOpened{id: id, domain: domain}
       end
 
-      def apply(%Shop{} = shop, %Shop.Events.ShopOpened{} = event) do
+      def apply(%Shop.Aggregate{} = shop, %Shop.Events.ShopOpened{} = event) do
         %Shop.Events.ShopOpened{id: id, domain: domain} = event
-        %Shop{shop | id: id, domain: domain, balance: 1000}
+        %Shop.Aggregate{shop | id: id, domain: domain, balance: 1000}
       end
     end
   end

@@ -1,4 +1,4 @@
-defmodule Shop.DataTypes do
+defmodule Shop.Graphql do
   use Absinthe.Schema.Notation
 
   object :shop do
