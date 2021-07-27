@@ -35,7 +35,9 @@ defmodule Shop.MixProject do
       {:absinthe, "~> 1.5"},
       {:commanded_ecto_projections, "~> 1.2"},
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      {:commanded_eventstore_adapter, "~> 1.2"},
+      {:eventstore, "~> 1.3"}
     ]
   end
 end
