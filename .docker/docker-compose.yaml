@@ -3,10 +3,10 @@ services:
   backend:
     build:
       context: .
-      ports:
-      - "4000"
     depends_on:
       - db
+    ports:
+      - "4000"
   db:
     image: postgres
     environment:
