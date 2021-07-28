@@ -1,9 +1,11 @@
-version: 3
+version: "3.x"
 services:
   backend:
-    image: elixir
-    expose: 
+    image: elixir:alpine
+    expose:
       - "4000"
+    depends_on:
+      - db
   db:
     image: postgres
     environment:
