@@ -1,5 +1,9 @@
 version: 3
 services:
+  backend:
+    image: elixir
+    expose: 
+      - "4000"
   db:
     image: postgres
     environment:
