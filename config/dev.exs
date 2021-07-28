@@ -5,14 +5,14 @@ config :shop, Shop.EventStore,
   database: "shop_es",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
+  hostname: "db",
   pool_size: 10
 
 config :shop, Shop.Repo,
   database: "shop_repo",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
+  hostname: "db"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
