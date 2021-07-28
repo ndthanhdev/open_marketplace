@@ -1,7 +1,8 @@
 FROM elixir:alpine
 
-RUN apk update \
-  && apk add git
+RUN apk update
+RUN apk add git
+RUN apk add openssh
 
 WORKDIR /open_marketplace/
 COPY . .
