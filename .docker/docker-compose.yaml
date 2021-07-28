@@ -11,5 +11,5 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: "postgres"
-      ports:
+    ports:
       - "5432"
