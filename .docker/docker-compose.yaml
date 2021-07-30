@@ -6,9 +6,9 @@ services:
     depends_on:
       - db
     ports:
-      - "4000"
+      - "4000:4000"
   db:
     build:
       context: db
     ports:
-      - "5432"
+      - "5432:5432"
