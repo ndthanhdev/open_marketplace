@@ -2,17 +2,17 @@ use Mix.Config
 
 config :shop, Shop.EventStore,
   serializer: Commanded.Serialization.JsonSerializer,
-  database: "shop_es",
+  database: "shop_es_test",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
+  hostname: "db",
   pool_size: 10
 
 config :shop, Shop.Repo,
-  database: "shop_repo",
+  database: "shop_repo_test",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
+  hostname: "db"
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.

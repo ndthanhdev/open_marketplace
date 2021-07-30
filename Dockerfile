@@ -12,6 +12,5 @@ RUN mix local.hex --force
 RUN mix deps.get
 
 WORKDIR /open_marketplace/apps/api
-RUN mix local.rebar --force
 
 CMD ["iex", "-S", "mix", "phx.server"]

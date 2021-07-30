@@ -2,14 +2,14 @@ use Mix.Config
 
 config :shop, Shop.EventStore,
   serializer: Commanded.Serialization.JsonSerializer,
-  database: "shop_es",
+  database: "shop_es_dev",
   username: "postgres",
   password: "postgres",
   hostname: "db",
   pool_size: 10
 
 config :shop, Shop.Repo,
-  database: "shop_repo",
+  database: "shop_repo_dev",
   username: "postgres",
   password: "postgres",
   hostname: "db"
