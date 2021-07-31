@@ -2,7 +2,8 @@ defmodule Shop.Projector do
   use Commanded.Projections.Ecto,
     application: Shop.App,
     repo: Shop.Repo,
-    name: "Shop.Projector"
+    name: "Shop.Projector",
+    consistency: :strong
 
   alias Shop.{Events}
 

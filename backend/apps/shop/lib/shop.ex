@@ -6,7 +6,7 @@ defmodule Shop do
 
     create_shop = Map.put(attrs, :uuid, uuid) |> Commands.CreateShop.new()
 
-    with :ok <- App.dispatch(create_shop) do
+    with :ok <- App.dispatch(create_shop, consistency: :strong) do
       get(Projection, uuid)
     end
   end
@@ -15,7 +15,7 @@ defmodule Shop do
   Get a single shop by their UUID
   """
   def shop_by_uuid(uuid) when is_binary(uuid) do
-    Repo.get(Shop.Projection, uuid)
+    Repo.get(Projection, uuid)
   end
 
   @doc """

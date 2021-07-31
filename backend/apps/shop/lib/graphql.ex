@@ -7,10 +7,23 @@ defmodule Shop.Graphql do
   end
 
   object :shop_queries do
-    @desc "Get all the shops, optionally filtering"
-    field :shop, list_of(:shop) do
-      resolve(fn _parent, _args, _resolution ->
-        {:ok, Shop.Projection |> Shop.Repo.all}
+    @desc "Get a shop by domain"
+    field :shop_by_domain, :shop do
+      arg(:domain, non_null(:string))
+
+      resolve(fn _parent, args, _resolution ->
+        Shop.shop_by_domain(args.domain)
+      end)
+    end
+  end
+
+  object :shop_mutations do
+    @desc "Create a shop"
+    field :create_shop, :shop do
+      arg(:domain, non_null(:string))
+
+      resolve(fn _parent, args, _resolution ->
+        Shop.create_shop(args)
       end)
     end
   end
