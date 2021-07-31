@@ -3,6 +3,14 @@ defmodule Shop.Router do
 
   alias Shop.{Commands}
 
-  dispatch(Commands.OpenShop, to: Shop.Aggregate, identity: :id)
+  alias Shop.Supports.Middlewares.{Validate}
+
+  middleware(Validate)
+
+  identify(Shop.Aggregate,
+    by: :id
+  )
+
+  dispatch(Commands.CreateShop, to: Shop.Aggregate, identity: :id)
   dispatch(Commands.Withdraw, to: Shop.Aggregate, identity: :id)
 end

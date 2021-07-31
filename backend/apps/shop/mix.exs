@@ -38,7 +38,10 @@ defmodule Shop.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
       {:commanded_eventstore_adapter, "~> 1.2"},
-      {:eventstore, "~> 1.3"}
+      {:eventstore, "~> 1.3"},
+      {:vex, ">= 0.0.0"},
+      {:exconstructor, ">= 1.0.0"},
+      {:uuid, ">= 1.0.0"}
     ]
   end
 
