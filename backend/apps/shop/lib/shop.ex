@@ -1,13 +1,13 @@
 defmodule Shop do
-  alias Shop.{Commands, App, Repo, Projection}
+  alias Shop.{Commands, App, Repo, Projection, Queries}
 
   def create_shop(%{} = attrs) do
-    id = UUID.uuid4()
+    uuid = UUID.uuid4()
 
-    create_shop = Map.put(attrs, :id, id) |> Commands.CreateShop.new()
+    create_shop = Map.put(attrs, :uuid, uuid) |> Commands.CreateShop.new()
 
     with :ok <- App.dispatch(create_shop) do
-      get(Projection, id)
+      get(Projection, uuid)
     end
   end
 
@@ -18,8 +18,18 @@ defmodule Shop do
     Repo.get(Shop.Projection, uuid)
   end
 
-  defp get(schema, id) do
-    case Repo.get(schema, id) do
+  @doc """
+  Get an existing user by their domain, or return `nil` if not registered
+  """
+  def shop_by_domain(domain) when is_binary(domain) do
+    domain
+    |> String.downcase()
+    |> Queries.ShopByDomain.new()
+    |> Repo.one()
+  end
+
+  defp get(schema, uuid) do
+    case Repo.get(schema, uuid) do
       nil -> {:error, :not_found}
       projection -> {:ok, projection}
     end

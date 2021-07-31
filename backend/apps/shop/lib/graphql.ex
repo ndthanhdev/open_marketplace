@@ -2,7 +2,7 @@ defmodule Shop.Graphql do
   use Absinthe.Schema.Notation
 
   object :shop do
-    field(:id, :string)
+    field(:uuid, :string)
     field(:domain, :string)
   end
 

@@ -8,9 +8,9 @@ defmodule Shop.Router do
   middleware(Validate)
 
   identify(Shop.Aggregate,
-    by: :id
+    by: :uuid
   )
 
-  dispatch(Commands.CreateShop, to: Shop.Aggregate, identity: :id)
-  dispatch(Commands.Withdraw, to: Shop.Aggregate, identity: :id)
+  dispatch(Commands.CreateShop, to: Shop.Aggregate, identity: :uuid)
+  dispatch(Commands.Withdraw, to: Shop.Aggregate, identity: :uuid)
 end

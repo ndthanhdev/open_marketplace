@@ -1,26 +1,27 @@
 defmodule Shop.Commands.CreateShop do
   @derive Jason.Encoder
-  defstruct id: nil, domain: nil
+  defstruct uuid: nil, domain: nil
 
   use ExConstructor
   use Vex.Struct
 
-  validates(:id, uuid: true)
+  validates(:uuid, uuid: true, by: &Shop.Validators.UniqueUUID.validate/2)
 
   validates(:domain,
     presence: true,
-    length: [min: 4]
+    length: [min: 4],
+    by: &Shop.Validators.UniqueDomain.validate/2
   )
 end
 
 defmodule Shop.Events.ShopCreated do
   @derive Jason.Encoder
-  defstruct id: nil, domain: nil
+  defstruct uuid: nil, domain: nil
 
   use ExConstructor
   use Vex.Struct
 
-  validates(:id, uuid: true)
+  validates(:uuid, uuid: true)
   validates(:domain, presence: true, length: [min: 4])
 end
 
@@ -28,12 +29,12 @@ defmodule Shop.Agregate.CreateShop do
   defmacro __using__(_opts) do
     quote do
       def execute(%Shop.Aggregate{}, %Shop.Commands.CreateShop{} = open_shop) do
-        %Shop.Events.ShopCreated{id: open_shop.id, domain: open_shop.domain}
+        %Shop.Events.ShopCreated{uuid: open_shop.uuid, domain: open_shop.domain}
       end
 
       def apply(%Shop.Aggregate{} = shop, %Shop.Events.ShopCreated{} = event) do
-        %Shop.Events.ShopCreated{id: id, domain: domain} = event
-        %Shop.Aggregate{shop | id: id, domain: domain}
+        %Shop.Events.ShopCreated{uuid: uuid, domain: domain} = event
+        %Shop.Aggregate{shop | uuid: uuid, domain: domain}
       end
     end
   end

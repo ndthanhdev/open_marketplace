@@ -6,7 +6,7 @@ defmodule Shop.Projector do
 
   alias Shop.{Events}
 
-  project(%Events.ShopCreated{id: id, domain: domain}, _metadata, fn multi ->
-    Ecto.Multi.insert(multi, :shop_projection, %Shop.Projection{id: id, domain: domain})
+  project(%Events.ShopCreated{uuid: uuid, domain: domain}, _metadata, fn multi ->
+    Ecto.Multi.insert(multi, :shop_projection, %Shop.Projection{uuid: uuid, domain: domain})
   end)
 end

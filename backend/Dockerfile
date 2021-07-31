@@ -3,6 +3,7 @@ FROM elixir:alpine
 RUN apk update
 RUN apk add git
 RUN apk add openssh
+RUN apk add busybox-extras
 
 WORKDIR /open_marketplace/
 COPY . .
