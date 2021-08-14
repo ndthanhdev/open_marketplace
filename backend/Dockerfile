@@ -14,4 +14,5 @@ RUN mix setup
 
 # CMD ["iex", "-S", "mix", "phx.server"]
 # CMD ["sleep", "infinity"]
+RUN chmod ugo+x /open_marketplace/backend/docker-entrypoint.exs
 ENTRYPOINT [ "/open_marketplace/backend/docker-entrypoint.exs" ]
