@@ -4,7 +4,10 @@ on:
       name:
         description: name of the build
         required: false
-    
+  push:
+  pull_request:
+    branches:
+      - '*'
 jobs:
   test:
     runs-on: ubuntu-latest
