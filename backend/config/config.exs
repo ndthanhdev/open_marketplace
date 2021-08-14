@@ -13,9 +13,9 @@ config :shop, event_stores: [Shop.EventStore]
 
 config :shop, ecto_repos: [Shop.Repo]
 
-config :api,
-  ecto_repos: [Api.Repo],
-  generators: [context_app: false]
+# config :api,
+#   ecto_repos: [Api.Repo],
+#   generators: [context_app: false]
 
 # Configures the endpoint
 config :api, Api.Endpoint,
@@ -26,20 +26,20 @@ config :api, Api.Endpoint,
   live_view: [signing_salt: "TQHNlZsc"]
 
 # Configure Mix tasks and generators
-config :open_marketplace,
-  ecto_repos: [OpenMarketplace.Repo]
+# config :open_marketplace,
+#   ecto_repos: [OpenMarketplace.Repo]
 
-config :open_marketplace_web,
-  ecto_repos: [OpenMarketplace.Repo],
-  generators: [context_app: :open_marketplace]
+# config :open_marketplace_web,
+#   ecto_repos: [OpenMarketplace.Repo],
+#   generators: [context_app: :open_marketplace]
 
 # Configures the endpoint
-config :open_marketplace_web, OpenMarketplaceWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "AMzKLRnroLWV8SBV+fCGiuQWPjuhnu2WGEtYOD1AmmubciFpBKK6Vr7MR1CqdmM+",
-  render_errors: [view: OpenMarketplaceWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: OpenMarketplace.PubSub,
-  live_view: [signing_salt: "kNz4EoRv"]
+# config :open_marketplace_web, OpenMarketplaceWeb.Endpoint,
+#   url: [host: "localhost"],
+#   secret_key_base: "AMzKLRnroLWV8SBV+fCGiuQWPjuhnu2WGEtYOD1AmmubciFpBKK6Vr7MR1CqdmM+",
+#   render_errors: [view: OpenMarketplaceWeb.ErrorView, accepts: ~w(html json), layout: false],
+#   pubsub_server: OpenMarketplace.PubSub,
+#   live_view: [signing_salt: "kNz4EoRv"]
 
 # Configures Elixir's Logger
 config :logger, :console,
