@@ -11,10 +11,6 @@ defmodule Shop.DataCase do
   end
 
   setup_all do
-    Mix.Task.run("ecto.create", ["--quiet"])
-    Mix.Task.run("ecto.migrate", ["--quiet"])
-    Mix.Task.run("event_store.create")
-    Mix.Task.run("event_store.init")
     Shop.Storage.reset!()
     :ok
   end

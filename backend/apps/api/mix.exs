@@ -57,7 +57,8 @@ defmodule Api.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      setup_ecto: ["ecto.create --quiet", "ecto.migrate --quiet"],
+      test: ["setup_ecto", "test"]
     ]
   end
 end

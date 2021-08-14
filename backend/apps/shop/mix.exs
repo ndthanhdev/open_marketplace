@@ -33,7 +33,6 @@ defmodule Shop.MixProject do
       # {:sibling_app_in_umbrella, in_umbrella: true}
       {:jason, "~> 1.2"},
       {:commanded, "~> 1.2"},
-      {:commanded_extreme_adapter, "~> 1.1"},
       {:absinthe, "~> 1.5"},
       {:commanded_ecto_projections, "~> 1.2"},
       {:ecto_sql, "~> 3.0"},
@@ -42,7 +41,7 @@ defmodule Shop.MixProject do
       {:eventstore, "~> 1.3"},
       {:vex, ">= 0.0.0"},
       {:exconstructor, ">= 1.0.0"},
-      {:uuid, ">= 1.0.0"}
+      {:elixir_uuid, "~> 1.2"}
     ]
   end
 
@@ -53,7 +52,10 @@ defmodule Shop.MixProject do
 
   defp aliases do
     [
-      # test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      setup_ecto: ["ecto.create", "ecto.migrate"],
+      setup_event_store: ["event_store.create", "event_store.init"],
+      test: ["setup_ecto", "setup_event_store", "test"],
+      setup: ["deps.get"]
     ]
   end
 end
