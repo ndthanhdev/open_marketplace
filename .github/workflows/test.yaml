@@ -14,4 +14,4 @@ jobs:
       - name: Compose up
         run: "docker-compose -f .docker/docker-compose.yaml --project-directory ./ up -d"
       - name: Test
-        run: "docker-compose -f .docker/docker-compose.yaml --project-directory ./ exec backend mix test"
+        run: "docker-compose -f .docker/docker-compose.yaml --project-directory ./ exec -T backend mix test"
