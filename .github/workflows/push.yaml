@@ -37,7 +37,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}_${{ matrix.image.name }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}_${{ matrix.image }}
           tags: |
             type=raw,value=experimental
 
