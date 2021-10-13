@@ -29,4 +29,4 @@ RUN apk add --no-cache --update busybox-extras bash openssl curl
 WORKDIR /backend_umbrella
 
 COPY --from=Builder /backend_umbrella/ /backend_umbrella/
-CMD ["/backend_umbrella/prod/rel/backend_umbrella/bin/backend_umbrella", "start"]
+CMD ["/backend_umbrella/_build/prod/rel/backend_umbrella/bin/backend_umbrella", "start"]
