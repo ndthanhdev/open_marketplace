@@ -11,4 +11,6 @@ secret_names:
   # secret-key-base
   backend_umbrella: backend-umbrella
 
-domain: op.local
+domains:
+  backend_umbrella: umbrella.op.local
+  web: op.local

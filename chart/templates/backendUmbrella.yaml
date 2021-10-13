@@ -17,6 +17,7 @@ spec:
       containers:
         - name: backend-umbrella
           image: ghcr.io/ndthanhdev/open_marketplace_backend_umbrella:experimental
+          imagePullPolicy: Always
           ports:
             - containerPort: 4000
           env:
@@ -35,7 +36,7 @@ spec:
     app: backend-umbrella
   ports:
     - protocol: TCP
-      port: 4000
+      port: 80
       targetPort: 4000
 ---
 apiVersion: networking.k8s.io/v1
@@ -44,10 +45,10 @@ metadata:
   name: backend-umbrella
 spec:
   rules:
-    - host: {{ .Values.domain }}
+    - host: {{ .Values.domains.backend_umbrella }}
       http:
         paths:
-        - path: /api
+        - path: /
           pathType: Prefix
           backend:
             service:
