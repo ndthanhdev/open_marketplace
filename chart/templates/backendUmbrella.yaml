@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-umbrella
-          image: ghcr.io/ndthanhdev/open_marketplace_backend_umbrella:experimental
+          image: ghcr.io/ndthanhdev/open_marketplace_backend_umbrella:{{ .Values.image_tag }}
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
