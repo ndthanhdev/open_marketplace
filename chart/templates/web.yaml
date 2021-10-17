@@ -39,7 +39,7 @@ metadata:
   name: web
 spec:
   rules:
-    - host: {{ .Values.domains.web }}
+    - host: {{ .Values.domain }}
       http:
         paths:
         - path: /

@@ -45,10 +45,10 @@ metadata:
   name: backend-umbrella
 spec:
   rules:
-    - host: {{ .Values.domains.backend_umbrella }}
+    - host: {{ .Values.domain }}
       http:
         paths:
-        - path: /
+        - path: /api
           pathType: Prefix
           backend:
             service:
