@@ -80,9 +80,12 @@ jobs:
           KUBECONFIG_FILE: ${{ secrets.KUBE_CONFIG_EXPERIMENT }}
         with:
           helm: helm3
-          namespace: default
-          release: op-experiment
+          namespace: experiment
+          release: op
           chart: chart/
           token: ${{ secrets.GITHUB_TOKEN }}
           values: |
             tag: experiment-${{ env.SHA_SHORT }}
+            domains:
+              backend_umbrella: um-opmar.duckdns.org
+              web: opmar.duckdns.org
