@@ -10,16 +10,20 @@ env:
 
 jobs:
   build-and-push-image:
-    runs-on: arm64
     permissions:
       contents: read
       packages: write
 
     strategy:
       matrix:
+        runs-on:
+          - arm64
+          - ubuntu-latest
         image:
           - backend_umbrella
           - web
+
+    runs-on: ${{ matrix.runs-on }}
 
     steps:
       - name: Checkout repository
@@ -77,7 +81,7 @@ jobs:
         with:
           helm: helm3
           namespace: default
-          release: op
+          release: op-experiment
           chart: chart/
           token: ${{ secrets.GITHUB_TOKEN }}
           values: |

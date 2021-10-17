@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-image_tag: experiment-5a91200
+image_tag: experiment
 
 replicas:
   backend_umbrella: 1
