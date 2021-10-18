@@ -43,7 +43,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}_${{ matrix.image }}
           tags: |
-            type=sha,prefix=experiment-,format=short
+            type=sha,prefix=experiment-,format=long
             type=raw,value=experiment
 
       - name: Build and push Docker image
@@ -85,5 +85,5 @@ jobs:
           chart: chart/
           token: ${{ secrets.GITHUB_TOKEN }}
           values: |
-            tag: experiment-${{ env.SHA_SHORT }}
+            tag: experiment-${{ env.GITHUB_SHA }}
             domain: opmar.duckdns.org
