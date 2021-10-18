@@ -85,5 +85,5 @@ jobs:
           chart: chart/
           token: ${{ secrets.GITHUB_TOKEN }}
           values: |
-            image_tag: experiment-${{ env.GITHUB_SHA }}
+            image_tag: experiment-${{ github.sha }}
             domain: opmar.duckdns.org
