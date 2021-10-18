@@ -15,19 +15,9 @@ config :backend_web,
 # Configures the endpoint
 config :backend_web, BackendWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: BackendWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [view: BackendWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: Backend.PubSub,
-  live_view: [signing_salt: "xtpVAZmc"]
-
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.12.18",
-  default: [
-    args:
-      ~w(js/app.js --bundle --target=es2016 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
-    cd: Path.expand("../apps/backend_web/assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
+  live_view: [signing_salt: "0vrtGnOB"]
 
 # Configures Elixir's Logger
 config :logger, :console,

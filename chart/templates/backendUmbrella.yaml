@@ -38,20 +38,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 4000
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: backend-umbrella
-spec:
-  rules:
-    - host: {{ .Values.domain }}
-      http:
-        paths:
-        - path: /api
-          pathType: Prefix
-          backend:
-            service:
-              name: backend-umbrella
-              port:
-                number: 80

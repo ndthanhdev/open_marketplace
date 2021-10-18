@@ -1,7 +1,7 @@
-defmodule BackendWeb.PageController do
+defmodule BackendWeb.DefaultController do
   use BackendWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    text(conn, "Backend!")
   end
 end

@@ -4,7 +4,7 @@ import Config
 # you can enable the server option below.
 config :backend_web, BackendWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "rJFbMudsz+SLkrxf5VL6TEoWWTabEb/jVzweqUAWn57TnSu/SFIzSpw8iR+H/EUD",
+  secret_key_base: "Jh8YYM59xPHt+nzibUwMYbT7WIG+wZ72uxMf5cBTPlXLqQ4Ran7DS6b0ka7DXAkB",
   server: false
 
 # Print only warnings and errors during test
