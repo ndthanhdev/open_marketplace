@@ -24,7 +24,7 @@ spec:
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
-                  name: backend-umbrella
+                  name: opmar
                   key: secret-key-base
 ---
 apiVersion: v1

@@ -2,15 +2,10 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-image_tag: experiment-bf4c64b7a437f76d6fc9158226e38056a98b486c
+image_tag: experiment-448911025f5c7085ee14ec3b7eb720fe0b508d3c
 
 replicas:
   backend_umbrella: 1
   web: 1
-
-secret_names:
-  # must defined
-  # secret-key-base
-  backend_umbrella: backend-umbrella
 
 domain: opmar.local
