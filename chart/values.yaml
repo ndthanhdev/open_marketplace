@@ -5,7 +5,7 @@
 image_tag: experiment-448911025f5c7085ee14ec3b7eb720fe0b508d3c
 
 replicas:
-  backend_umbrella: 1
+  backend_umbrella: 4
   web: 1
 
 domain: opmar.local

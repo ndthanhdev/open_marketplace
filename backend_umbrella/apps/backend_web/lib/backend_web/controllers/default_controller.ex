@@ -2,6 +2,7 @@ defmodule BackendWeb.DefaultController do
   use BackendWeb, :controller
 
   def index(conn, _params) do
-    text(conn, "Backend!")
+    message = Backend.get_message
+    text(conn, message)
   end
 end

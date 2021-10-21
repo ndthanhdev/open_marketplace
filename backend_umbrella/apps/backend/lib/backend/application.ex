@@ -9,9 +9,10 @@ defmodule Backend.Application do
   def start(_type, _args) do
     children = [
       # Start the PubSub system
-      {Phoenix.PubSub, name: Backend.PubSub}
+      {Phoenix.PubSub, name: Backend.PubSub},
       # Start a worker by calling: Backend.Worker.start_link(arg)
       # {Backend.Worker, arg}
+      {Backend.Counter, 0}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: Backend.Supervisor)

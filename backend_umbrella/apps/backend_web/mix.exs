@@ -24,7 +24,7 @@ defmodule BackendWeb.MixProject do
   def application do
     [
       mod: {BackendWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :backend]
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule BackendWeb.MixProject do
       {:gettext, "~> 0.18"},
       {:backend, in_umbrella: true},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:backend, in_umbrella: true}
     ]
   end
 
