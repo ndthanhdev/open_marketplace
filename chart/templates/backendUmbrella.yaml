@@ -24,12 +24,12 @@ spec:
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
-                  name: opmar
+                  name: {{ .Release.Name }}-opmar
                   key: secret-key-base
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: opmar
+                  name: {{ .Release.Name }}-opmar
                   key: redis-password
             - name: REDIS_HOST
               value: {{ .Release.Name }}-redis-master
