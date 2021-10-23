@@ -1,5 +1,14 @@
 import Config
 
+
+redis_host = System.get_env("REDIS_HOST")
+redis_port = String.to_integer(System.get_env("REDIS_PORT"))
+redis_password = System.get_env("REDIS_PASSWORD")
+
+config :backend,
+  redis_host: redis_host,
+  redis_port: redis_port
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
