@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-umbrella
+  name: {{ .Release.Name }}-backend-umbrella
   labels:
     app: backend-umbrella
 spec:
@@ -26,11 +26,21 @@ spec:
                 secretKeyRef:
                   name: opmar
                   key: secret-key-base
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: opmar
+                  key: redis-password
+            - name: REDIS_HOST
+              value: {{ .Release.Name }}-redis-master
+            - name: REDIS_PORT
+              value: "6379"
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-umbrella
+  name: {{ .Release.Name }}-backend-umbrella
 spec:
   selector:
     app: backend-umbrella

@@ -1,5 +1,13 @@
 import Config
 
+redis_host = System.get_env("REDIS_HOST")
+redis_port = String.to_integer(System.get_env("REDIS_PORT"))
+redis_password = System.get_env("REDIS_PASSWORD")
+
+config :backend,
+  redis_host: redis_host,
+  redis_port: redis_port
+
 # config/runtime.exs is executed for all environments, including
 # during releases. It is executed after compilation and before the
 # system starts, so it is typically used to load production configuration

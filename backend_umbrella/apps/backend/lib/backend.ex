@@ -8,8 +8,12 @@ defmodule Backend do
   """
 
   def get_message() do
-    Backend.Counter.increase
+    Backend.Counter.get()
+  end
 
-    Backend.Counter.get
+  def increase do
+    Backend.Counter.increase()
+
+    Backend.Counter.get()
   end
 end

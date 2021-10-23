@@ -8,6 +8,7 @@ defmodule BackendWeb.Router do
   scope "/api", BackendWeb do
     pipe_through :api
     get "/", DefaultController, :index
+    get "/increase", DefaultController, :increase
   end
 
   # Enables LiveDashboard only for development
