@@ -52,7 +52,7 @@ defmodule Backend.Counter do
           0
 
         {:ok, value} ->
-          value
+          String.to_integer(value)
 
         {:error, _err} ->
           -99
