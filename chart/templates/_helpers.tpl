@@ -1,5 +1,5 @@
 {{- define "opmar.secretName" -}}
-{{ .Release.Name }}-opmar
+opmar
 {{- end -}}
 
 {{/*
