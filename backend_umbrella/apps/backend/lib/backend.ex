@@ -14,6 +14,11 @@ defmodule Backend do
   def increase do
     Backend.Counter.increase()
 
-    Backend.Counter.get()
+    {fqdn, _exit_status} = System.cmd("hostname", ["-f"])
+    fqdn = String.trim(fqdn)
+
+    value = Backend.Counter.get()
+
+    "value: #{value}, fqdn: #{fqdn}"
   end
 end
