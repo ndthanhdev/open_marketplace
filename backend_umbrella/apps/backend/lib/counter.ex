@@ -58,7 +58,7 @@ defmodule Backend.Counter do
           -99
       end
 
-    value = String.to_integer(value)
+    value = value
 
     next = 1 + value
 
