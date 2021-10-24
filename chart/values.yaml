@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-image_tag: experiment-4437a47b552bce37a66d998eb67b378cb8220783
+image_tag: experiment
 
 replicas:
   backend_umbrella: 3
@@ -14,3 +14,7 @@ redis:
   auth:
     existingSecret: "opmar"
     existingSecretPasswordKey: "redis-password"
+  image:
+    repository: redis
+    tag: latest
+    pullPolicy: Always
