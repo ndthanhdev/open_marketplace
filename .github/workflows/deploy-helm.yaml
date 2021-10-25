@@ -1,4 +1,5 @@
-name: Deploy to
+name: deploy to
+
 on:
   workflow_dispatch:
     inputs:
@@ -14,6 +15,10 @@ on:
         description: "Domain to deploy"
         required: false
         default: opmar.duckdn.org
+
+env:
+  REGISTRY: ghcr.io
+
 jobs:
   deploy-to-cluster:
     runs-on: ubuntu-latest
