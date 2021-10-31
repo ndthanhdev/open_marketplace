@@ -1,0 +1,13 @@
+{
+  "name": "web",
+  "packageManager": "yarn@3.1.0",
+  "private": true,
+  "workspaces": [
+    "etc/",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@yarnpkg/sdks": "^2.5.0",
+    "typescript": "^4.4.4"
+  }
+}
