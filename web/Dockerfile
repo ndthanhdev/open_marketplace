@@ -1,11 +1,13 @@
-# FROM node:latest as Builder
+FROM node:latest as Builder
 
-# RUN npm i -g ts-node
+COPY ./ /web
 
-# COPY ./ ./web
+WORKDIR /web
 
-# WORKDIR /web
+RUN yarn install
 
+RUN ./scripts/build.ts
 
 FROM nginx:latest as App
-COPY ./index.html /usr/share/nginx/html/index.html
+
+COPY --from=Builder /web/modules/shell/build/ /usr/share/nginx/html/
