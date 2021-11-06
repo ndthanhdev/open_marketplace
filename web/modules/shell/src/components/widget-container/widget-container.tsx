@@ -2,35 +2,30 @@ import React from "react";
 import { GridContext } from "../grid";
 
 interface WidgetContainer {
-  top: number;
-  left: number;
+  x: number;
+  y: number;
   width: number;
   height: number;
 }
 
 let WidgetContainer: React.FC<WidgetContainer> = ({
-  top,
-  left,
-  width,
-  height,
+  x: xProp,
+  y: yProp,
+  width: widthProp,
+  height: heightProp,
   children,
   ...otherProps
 }) => {
-  const {
-    top: boxTop,
-    right: boxRight,
-    bottom: boxBottom,
-    left: boxLeft,
-  } = useBox(top, left, width, height);
+  const { x, y, width, height } = useBox(xProp, yProp, widthProp, heightProp);
 
   return (
     <div
       style={{
         position: "absolute",
-        top: boxTop,
-        right: boxRight,
-        bottom: boxBottom,
-        left: boxLeft,
+        left: x,
+        top: y,
+        width,
+        height,
         backgroundColor: "rgba(0, 0, 0, 0.1)",
         borderRadius: "8px",
       }}
@@ -42,13 +37,13 @@ let WidgetContainer: React.FC<WidgetContainer> = ({
 
 export { WidgetContainer };
 
-function useBox(top: number, left: number, width: number, height: number) {
+function useBox(x: number, y: number, width: number, height: number) {
   const { columnWidth, rowHeight } = React.useContext(GridContext);
 
   return {
-    top: top * rowHeight,
-    right: (left + width) * columnWidth,
-    bottom: (top + height) * rowHeight,
-    left: left * columnWidth,
+    x: x * columnWidth,
+    y: y * rowHeight,
+    width: (x + width) * columnWidth,
+    height: (y + height) * rowHeight,
   };
 }
