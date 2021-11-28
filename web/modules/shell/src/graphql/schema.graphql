@@ -1,0 +1,13 @@
+scalar Date
+
+schema {
+  query: Query
+}
+
+type Query {
+  local: Local!
+}
+
+type Local {
+  token: String! @client
+}

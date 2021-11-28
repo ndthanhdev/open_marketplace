@@ -12,6 +12,7 @@ module.exports = {
   ],
   packageOptions: {
     /* ... */
+    knownEntrypoints: ["zen-observable-ts"],
   },
   devOptions: {
     /* ... */

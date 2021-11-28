@@ -1,12 +1,16 @@
 import React from "react";
 import { Grid } from "../../components/grid";
 import { WidgetContainer } from "../../components/widget-container";
-import { useTokenQuery } from "./types";
+import { useReadTokenQuery } from "./types";
 
 interface Shell {}
 
 let Shell: React.FC<Shell> = (props) => {
-  const { data } = useTokenQuery();
+  const { data } = useReadTokenQuery({
+    pollInterval: 2000
+  });
+
+  console.log("asd", { data });
 
   return (
     <div
@@ -17,7 +21,6 @@ let Shell: React.FC<Shell> = (props) => {
         bottom: 0,
       }}
     >
-      {data}
       <Grid columnCount={32}>
         <WidgetContainer x={6} y={16} width={6} height={2} />
       </Grid>

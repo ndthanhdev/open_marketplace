@@ -1,0 +1,7 @@
+# This example isn't
+# using GraphQL operations
+query readToken {
+    local {
+        token
+    }
+}
