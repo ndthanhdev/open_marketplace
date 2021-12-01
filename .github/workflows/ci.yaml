@@ -20,6 +20,7 @@ jobs:
           - ubuntu-latest
         image:
           - backend_umbrella
+          - collection
           - web
 
     runs-on: ${{ matrix.runs-on }}
