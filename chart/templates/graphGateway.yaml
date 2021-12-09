@@ -5,7 +5,7 @@ metadata:
   labels:
     app: graphql-gateway
 spec:
-  replicas: {{ .Values.replicas.graphql-gateway }}
+  replicas: {{ .Values.replicas.graphqlGateway }}
   selector:
     matchLabels:
       app: graphql-gateway
