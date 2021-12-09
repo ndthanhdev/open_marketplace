@@ -1,15 +1,19 @@
 {
-  "name": "graphql-gateway",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "packageManager": "yarn@3.1.1",
-  "dependencies": {
-    "@apollo/gateway": "^0.44.1",
-    "apollo-server": "^3.5.0",
-    "graphql": "15",
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
-  }
+	"name": "graphql-gateway",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"packageManager": "yarn@3.1.1",
+	"scripts": {
+		"start": "yarn node main.js",
+		"dev": "nodemon --delay 2 -e ts,js,graphql main.js"
+	},
+	"dependencies": {
+		"@apollo/gateway": "^0.44.1",
+		"apollo-server": "^3.5.0",
+		"graphql": "15",
+		"nodemon": "^2.0.15",
+		"ts-node": "^10.4.0",
+		"typescript": "^4.5.2"
+	}
 }

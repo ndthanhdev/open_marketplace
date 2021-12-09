@@ -3,8 +3,9 @@ import { ApolloGateway } from '@apollo/gateway';
 import { readFileSync } from "fs";
 import Path from "path";
 
-const supergraphSdl = readFileSync(Path.join(__dirname, './supergraph.graphql')).toString();
+const port = process.env.PORT || 4000;
 
+const supergraphSdl = readFileSync(Path.join(__dirname, './supergraph.graphql')).toString();
 
 const gateway = new ApolloGateway({
 	supergraphSdl,
@@ -12,10 +13,11 @@ const gateway = new ApolloGateway({
 
 const server = new ApolloServer({
 	gateway,
+
 });
 
 server
-	.listen()
+	.listen({ port })
 	.then(({ url }) => {
 		console.log(`🚀 Gateway ready at ${url}`);
 	})
