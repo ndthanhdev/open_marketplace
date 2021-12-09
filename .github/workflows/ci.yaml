@@ -1,4 +1,4 @@
-name: CD
+name: Build and push image
 
 on:
   push:
@@ -10,6 +10,8 @@ env:
 
 jobs:
   build-and-push-image:
+    name: Build and push image
+
     permissions:
       contents: read
       packages: write
@@ -61,37 +63,3 @@ jobs:
           context: ./${{ matrix.image }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-  # deploy-to-cluster:
-  #   needs:
-  #     - build-and-push-image
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v2
-
-  #     - name: Log in to the Container registry
-  #       uses: docker/login-action@v1
-  #       with:
-  #         registry: ${{ env.REGISTRY }}
-  #         username: ${{ github.actor }}
-  #         password: ${{ secrets.GITHUB_TOKEN }}
-
-  #     - name: "Repository Meta"
-  #       uses: varunsridharan/action-repository-meta@main
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  #     - name: Deploy experiment
-  #       uses: deliverybot/helm@v1
-  #       env:
-  #         KUBECONFIG_FILE: ${{ secrets.KUBE_CONFIG_EXPERIMENT }}
-  #       with:
-  #         helm: helm3
-  #         namespace: experiment
-  #         release: op
-  #         chart: chart/
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         values: |
-  #           image_tag: experiment-${{ github.sha }}
-  #           domain: opmar.duckdns.org
