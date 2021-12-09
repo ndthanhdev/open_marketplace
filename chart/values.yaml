@@ -6,6 +6,7 @@ image_tag: experiment
 
 replicas:
   backend_umbrella: 3
+  graphql-gateway: 1
   web: 1
 
 domain: opmar.local
