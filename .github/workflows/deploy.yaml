@@ -3,17 +3,21 @@ name: Deploy
 on:
   workflow_dispatch:
     inputs:
+      chart:
+        required: true
+        description: The git ref of the chart to deploy
+        default: master
       image:
         description: "Image to deploy"
-        required: false
+        required: true
         default: experiment
       namespace:
         description: "Namespace to deploy"
-        required: false
+        required: true
         default: experiment
       domain:
         description: "Domain to deploy"
-        required: false
+        required: true
         default: opmar.duckdn.org
 
 env:
@@ -23,6 +27,11 @@ jobs:
   deploy-to-cluster:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.chartRef }}
+
       - name: Log in to the Container registry
         uses: docker/login-action@v1
         with:
