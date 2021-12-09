@@ -21,6 +21,7 @@ jobs:
         image:
           - backend_umbrella
           - collection
+          - graphql-gateway
           - web
 
     runs-on: ${{ matrix.runs-on }}
