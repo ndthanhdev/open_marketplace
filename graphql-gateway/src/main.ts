@@ -13,7 +13,6 @@ const gateway = new ApolloGateway({
 
 const server = new ApolloServer({
 	gateway,
-	playground: true,
 });
 
 server
