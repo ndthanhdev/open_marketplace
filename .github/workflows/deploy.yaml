@@ -18,7 +18,7 @@ on:
       domain:
         description: "Domain to deploy"
         required: true
-        default: opmar.duckdn.org
+        default: opmar.duckdns.org
 
 env:
   REGISTRY: ghcr.io
